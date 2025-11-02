@@ -12,10 +12,6 @@ class Solution(object):
             print(low, high, center)
             if center * center == x:
                 return center
-            elif low * low == x:
-                return low
-            elif high * high == x:
-                return high
             elif high - low == 1:
                 return low
             elif center * center < x:
