@@ -10,7 +10,6 @@ class Solution(object):
         low, high = 0, x
         while(high > low):
             center = int((high + low) / 2)
-            print(low, high, center)
             if center * center == x:
                 return center
             elif high - low == 1:
@@ -19,6 +18,5 @@ class Solution(object):
                 low = center
             elif center * center > x:
                 high = center
-            print(low, high, center)
 
     
