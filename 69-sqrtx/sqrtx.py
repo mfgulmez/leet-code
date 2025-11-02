@@ -14,11 +14,12 @@ class Solution(object):
                 return low
             elif high * high == x:
                 return high
+            elif high - low == 1:
+                return low
             elif center * center < x:
                 low = center
             elif center * center > x:
                 high = center
-            if high - low == 1:
-                return low
+       
 
     
