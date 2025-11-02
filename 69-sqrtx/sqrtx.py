@@ -19,6 +19,6 @@ class Solution(object):
                 low = center
             elif center * center > x:
                 high = center
-     
+            print(low, high, center)
 
     
