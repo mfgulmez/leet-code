@@ -4,6 +4,8 @@ class Solution(object):
         :type x: int
         :rtype: int
         """
+        if x == 0:
+            return 0
         low, high = 0, x
         while(high >= low):
             center = int((high + low) / 2)
