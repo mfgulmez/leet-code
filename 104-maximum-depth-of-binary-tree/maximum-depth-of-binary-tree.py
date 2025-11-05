@@ -8,19 +8,18 @@
 class Solution(object):
     def depth(self, treeNode):
         if treeNode == None:
-            return -1
+            return 0
         depth_left = self.depth(treeNode.left)
         depth_right = self.depth(treeNode.right)
 
         return max(depth_left, depth_right) + 1
+        
     def maxDepth(self, root):
         """
         :type root: Optional[TreeNode]
         :rtype: int
         """
-        if root != None:
-            depth = self.depth(root) + 1
-            return depth
-        else:
-            return 0
+        depth = self.depth(root)
+        return depth
+    
         
