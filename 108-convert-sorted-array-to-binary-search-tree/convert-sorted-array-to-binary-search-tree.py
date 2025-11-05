@@ -8,7 +8,7 @@
 class Solution(object):
     def construct_tree(self, low, high, nums):
         if low > high:
-            return
+            return None
 
         mid = (low + high) / 2
         root = TreeNode(nums[mid])
