@@ -19,7 +19,6 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: int
         """
-        depth = self.depth(root)
-        return depth
+        return self.depth(root)
     
         
