@@ -9,7 +9,6 @@ class Solution(object):
     def depth(self, treeNode):
         if treeNode == None:
             return -1
-
         depth_left = self.depth(treeNode.left)
         depth_right = self.depth(treeNode.right)
 
