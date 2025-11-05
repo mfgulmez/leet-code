@@ -10,7 +10,7 @@ class Solution(object):
         if low > high:
             return
 
-        mid = (low + high) // 2
+        mid = (low + high) / 2
         root = TreeNode(nums[mid])
 
         root.left = self.construct_tree(low, mid - 1, nums)
