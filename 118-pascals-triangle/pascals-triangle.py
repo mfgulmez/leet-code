@@ -10,12 +10,10 @@ class Solution(object):
             if i > 1:
                 row += [1]
                 previous_row = result[i - 1]
-                print(previous_row)
                 j = 0
                 while j < i - 1:
                     row += [previous_row[j] + previous_row[j + 1]]
                     j += 1
-
                 row += [1]
             elif i == 1:
                 row = [1, 1]
