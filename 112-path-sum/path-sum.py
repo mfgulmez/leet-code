@@ -6,15 +6,15 @@
 #         self.right = right
 
 class Solution(object):
-    def pathSums(self, treeNode, num, sums):
+    def pathSums(self, treeNode, num, targetSum):
         if treeNode == None:
-            return
+            return False
+            
         num += treeNode.val
         if treeNode.left == None and treeNode.right == None:
-            sums.append(num)
+            return num == targetSum
 
-        self.pathSums(treeNode.left, num, sums)
-        self.pathSums(treeNode.right, num, sums)
+        return self.pathSums(treeNode.left, num, targetSum) or self.pathSums(treeNode.right, num, targetSum)
 
     def hasPathSum(self, root, targetSum):
         """
@@ -23,11 +23,5 @@ class Solution(object):
         :rtype: bool
         """
 
-        sums = []
-        self.pathSums(root, 0, sums)
-        index = 0
-        while index < len(sums):
-            if sums[index] == targetSum:
-                return True
-            index += 1
-        return False
+        return self.pathSums(root, 0, targetSum)
+     
