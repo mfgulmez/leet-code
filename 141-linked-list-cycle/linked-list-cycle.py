@@ -11,7 +11,6 @@ class Solution(object):
         :rtype: bool
         """
         turtle, rabbit = head, head
-
         while turtle != None and rabbit != None and rabbit.next != None:
             turtle = turtle.next
             rabbit = rabbit.next.next
