@@ -9,9 +9,8 @@
 class Solution(object):
     def getInvertedTree(self, treeNode):
         if treeNode != None:
-            tempNode = treeNode.left
-            treeNode.left = treeNode.right
-            treeNode.right = tempNode
+            treeNode.left, treeNode.right = treeNode.right, treeNode.left
+            
             self.getInvertedTree(treeNode.left)
             self.getInvertedTree(treeNode.right)
      
