@@ -5,19 +5,19 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def numberOfNodes(self, treeNode, result):
+    def numberOfNodes(self, treeNode):
         if treeNode == None:
-            return
+            return 0
+        elif treeNode.left == None and treeNode.right == None:
+            return 1
        
-        self.numberOfNodes(treeNode.left, result)
-        result.append(0)
-        self.numberOfNodes(treeNode.right, result)
-    
+        return self.numberOfNodes(treeNode.left) + self.numberOfNodes(treeNode.right) + 1
+
     def countNodes(self, root):
         """
         :type root: Optional[TreeNode]
         :rtype: int
         """
-        result = []
-        self.numberOfNodes(root, result)
-        return len(result)
+
+        return self.numberOfNodes(root)
+   
