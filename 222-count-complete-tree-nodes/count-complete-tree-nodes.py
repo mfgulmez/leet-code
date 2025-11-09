@@ -10,14 +10,15 @@ class Solution(object):
             return 0
         elif treeNode.left == None and treeNode.right == None:
             return 1
-       
+  
+
         return self.numberOfNodes(treeNode.left) + self.numberOfNodes(treeNode.right) + 1
+
 
     def countNodes(self, root):
         """
         :type root: Optional[TreeNode]
         :rtype: int
         """
-
         return self.numberOfNodes(root)
    
