@@ -31,7 +31,6 @@ class Solution(object):
             else:
                 result += current_roman
                 index -= 1
-            print(index, result)
-            
+    
             
         return result
