@@ -13,12 +13,8 @@ class Solution(object):
         node = head
         result = ListNode()
         while node:
-            if result.next:
-                reverse_node = ListNode(node.val, result.next)
-                result.next = reverse_node
-            else:
-                reverse_node = ListNode(node.val)
-                result.next = reverse_node
+            reverse_node = ListNode(node.val, result.next)
+            result.next = reverse_node
             node = node.next
         
         result = result.next
