@@ -11,7 +11,9 @@ class Solution(object):
         """
 
         node = head
+
         result = ListNode()
+        
         while node:
             reverse_node = ListNode(node.val, result.next)
             result.next = reverse_node
