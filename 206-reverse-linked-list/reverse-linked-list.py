@@ -9,21 +9,17 @@ class Solution(object):
         :type head: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
-        node = head
-        if head != None:
-            nodes = []
-            while node:
-                nodes.append(node.val)
-                node = node.next
-            result = ListNode(nodes[len(nodes) - 1])
-            node = result
-            index = len(nodes) - 2
-            while index >= 0:
-                node.next = ListNode(nodes[index])
-                node = node.next
-                index -= 1
-            return result
-        else:
-            return head
 
+        node = head
+        result = ListNode()
+        while node:
+            if result.next:
+                reverse_node = ListNode(node.val, result.next)
+                result.next = reverse_node
+            else:
+                reverse_node = ListNode(node.val)
+                result.next = reverse_node
+            node = node.next
         
+        result = result.next
+        return result
