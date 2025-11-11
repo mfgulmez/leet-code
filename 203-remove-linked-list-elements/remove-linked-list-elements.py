@@ -10,18 +10,12 @@ class Solution(object):
         :type val: int
         :rtype: Optional[ListNode]
         """
+        while head and head.val == val:
+            head = head.next
         node = head
-        if head != None and head.val == val:
-            while head != None and head.val == val:
-                print("head")
-                head = head.next
-            node = head 
-        
-        while node != None:
-            prev = node
-            node = node.next
-            if node != None and node.val == val:
-                while node != None and node.val == val:
-                    node = node.next
-                prev.next = node
+        while node and node.next:
+            if node.next.val == val:
+                node.next = node.next.next
+            else:
+                node = node.next
         return head
