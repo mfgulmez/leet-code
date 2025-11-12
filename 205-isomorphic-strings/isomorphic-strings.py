@@ -13,11 +13,11 @@ class Solution(object):
             if t_char in t_mapping:
                 if s_char != t_mapping[t_char]:
                     return False
-            if s_char in s_mapping:
+            elif s_char in s_mapping:
                 if t_char != s_mapping[s_char]:
                     return False          
-
-            t_mapping[t_char] = s_char
-            s_mapping[s_char] = t_char
+            else:
+                t_mapping[t_char] = s_char
+                s_mapping[s_char] = t_char
             index += 1
         return True
