@@ -14,4 +14,9 @@ class Solution(object):
         while head != None:
             nums.append(head.val)
             head = head.next
-        return nums == nums[::-1]
+        index = 0
+        while index <= len(nums) // 2:
+            if nums[index] != nums[len(nums) - index - 1]:
+                return False
+            index += 1
+        return True
