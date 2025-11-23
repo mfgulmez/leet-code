@@ -13,9 +13,10 @@ class Solution(object):
         depth_right = self.minimum_depth(treeNode.right)
 
         min_depth = min(depth_left, depth_right) + 1
-        if min_depth == 1:
-            return max(depth_left, depth_right) + 1
-        return min_depth
+
+        if min_depth > 1:
+            return min_depth
+        return max(depth_left, depth_right) + 1
 
     def minDepth(self, root):
         """
