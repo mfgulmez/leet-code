@@ -6,17 +6,18 @@
 #         self.right = right
 class Solution(object):
     def minimum_depth(self, treeNode):
-        if treeNode == None:
+        if treeNode is None:
             return 0
 
-        depth_left = self.minimum_depth(treeNode.left)
-        depth_right = self.minimum_depth(treeNode.right)
+        if not treeNode.left and not treeNode.right:
+            return 1
 
-        min_depth = min(depth_left, depth_right) + 1
+        if not treeNode.left:
+            return 1 + self.minDepth(treeNode.right)
+        if not treeNode.right:
+            return 1 + self.minDepth(treeNode.left)
 
-        if min_depth > 1:
-            return min_depth
-        return max(depth_left, depth_right) + 1
+        return 1 + min(self.minDepth(treeNode.left), self.minDepth(treeNode.right))
 
     def minDepth(self, root):
         """
@@ -25,7 +26,6 @@ class Solution(object):
         """
       
         return self.minimum_depth(root)
-          
-        return 0
+     
          
         
