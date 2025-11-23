@@ -12,7 +12,7 @@ class Solution(object):
         if not treeNode.left and not treeNode.right:
             return 1
 
-        if not treeNode.left:
+        if not treeNode.left :
             return 1 + self.minDepth(treeNode.right)
         if not treeNode.right:
             return 1 + self.minDepth(treeNode.left)
