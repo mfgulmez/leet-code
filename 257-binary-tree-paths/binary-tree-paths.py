@@ -10,19 +10,14 @@ class Solution(object):
         if treeNode == None:
             return
         else:
-            if treeNode.left == None and treeNode.right == None:
+            if treeNode.left or treeNode.right:
+                path += str(treeNode.val) + "->"
+                self.paths(treeNode.left, path, paths)
+                self.paths(treeNode.right, path, paths)
+
+            else:
                 path += str(treeNode.val)
                 paths.append(path)
-            elif treeNode.left == None:
-                path += str(treeNode.val) + "->"
-                self.paths(treeNode.right, path, paths)
-            elif treeNode.right == None:
-                path += str(treeNode.val) + "->"
-                self.paths(treeNode.left, path, paths)
-            else:
-                path += str(treeNode.val) + "->"
-                self.paths(treeNode.left, path, paths)
-                self.paths(treeNode.right, path, paths)
         
     def binaryTreePaths(self, root):
         """
