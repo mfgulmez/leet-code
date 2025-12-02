@@ -6,17 +6,12 @@ class Solution(object):
         :rtype: List[int]
         """
         length = len(nums)
-        if length == 0:
-            return [-1, -1]
         low, high = 0, length - 1
-    
-        while low < length and high > -1 and (nums[low] < target or nums[high] > target):
-            if nums[low] < target:
-                low += 1
-            if nums[high] > target:
-                high -= 1
-        if low >= length or high < 0:
+
+        while low < length and nums[low] < target:
+            low += 1
+        while high > -1 and nums[high] > target:
+            high -= 1
+        if low > high:
             return [-1, -1]
-        if nums[low] == target or nums[high] == target:
-            return [low, high]
-        return [-1, -1]
+        return [low, high]
