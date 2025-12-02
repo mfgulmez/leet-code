@@ -25,5 +25,4 @@ class Solution(object):
                         low += 1
                     if nums[high] > target: 
                         high -= 1
-        if low >= high:
-            return [-1, -1]
+        return [-1, -1]
