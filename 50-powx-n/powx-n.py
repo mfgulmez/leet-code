@@ -2,8 +2,7 @@ class Solution(object):
     def recursivePow(self, x, n):
         if n == 1:
             return x
-        elif n == 2:
-            return x * x
+      
         base = self.recursivePow(x, n // 2)
         if n % 2 == 0:
             return base * base
