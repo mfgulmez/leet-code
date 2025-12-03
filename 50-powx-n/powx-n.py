@@ -4,11 +4,11 @@ class Solution(object):
             return x
       
         base = self.recursivePow(x, n // 2)
+        result = base * base
         if n % 2 == 0:
-            return base * base
+            return result
         else:
-            remain_base = self.recursivePow(x, n - (n // 2))
-            return base * remain_base
+            return result * x
     def myPow(self, x, n):
         """
         :type x: float
@@ -25,7 +25,7 @@ class Solution(object):
         if negative_power == False:
             result = self.recursivePow(x, n)
             return result
-            
+
         else:
             n *= -1
             result = self.recursivePow(x, n)
