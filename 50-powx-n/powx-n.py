@@ -20,14 +20,12 @@ class Solution(object):
             negative_power = True
         elif n == 0:
             return 1
-      
-        power_decimal_part = n // 1
-        power_ratio_part = n % 1
+    
         result = 1
         if negative_power == False:
- 
             result = self.recursivePow(x, n)
             return result
+            
         else:
             n *= -1
             result = self.recursivePow(x, n)
