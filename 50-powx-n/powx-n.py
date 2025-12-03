@@ -1,6 +1,5 @@
 class Solution(object):
     def recursivePow(self, x, n):
-        print(x, n)
         if n == 1:
             return x
         elif n == 2:
