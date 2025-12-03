@@ -8,7 +8,8 @@ class Solution(object):
         if n % 2 == 0:
             return base * base
         else:
-            return base * self.recursivePow(x, n - (n // 2))
+            remain_base = self.recursivePow(x, n - (n // 2))
+            return base * remain_base
     def myPow(self, x, n):
         """
         :type x: float
