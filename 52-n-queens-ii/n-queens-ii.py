@@ -1,36 +1,27 @@
 class Solution(object):
-    def returnSolutions(self, row, cols, positive_diagonal, negative_diagonal, board, solutions):
-        n = len(cols)
-
-        if row == n:
-            solutions[0] += 1
-            return 
-        
-        for col in range(n):
-            if cols[col] or positive_diagonal[row + col] or negative_diagonal[row - col + n - 1]:
-                continue
-
-            board[row] = board[row][:col] + "Q" + board[row][col + 1:]
-            cols[col] = 1
-            positive_diagonal[row + col] = 1
-            negative_diagonal[row - col + n - 1] = 1
-
-            self.returnSolutions(row + 1, cols, positive_diagonal, negative_diagonal, board, solutions)
-
-            board[row] = board[row][:col] + "." + board[row][col + 1:]
-            cols[col] = 0
-            positive_diagonal[row + col] = 0
-            negative_diagonal[row - col + n - 1] = 0
-
     def totalNQueens(self, n):
         """
         :type n: int
         :rtype: int
         """
-        cols = [0 for i in range(n)]
-        positive_diagonal, negative_diagonal = [0 for i in range(2 * n - 1)], [0 for i in range(2 * n - 1)]
-        board = ["." * n for _ in range(n)]
-        solutions = [0]
-        
-        self.returnSolutions(0, cols, positive_diagonal, negative_diagonal, board, solutions)
-        return solutions[0]
+        self.count = 0
+        full_mask = (1 << n) - 1 
+
+        def backtrack(cols, pos_diag, neg_diag):
+            if cols == full_mask:
+                self.count += 1
+                return
+
+            free = full_mask & ~(cols | pos_diag | neg_diag)
+
+            while free:
+                bit = free & -free
+                free -= bit
+                backtrack(
+                    cols | bit,
+                    (pos_diag | bit) << 1,
+                    (neg_diag | bit) >> 1
+                )
+
+        backtrack(0, 0, 0)
+        return self.count
