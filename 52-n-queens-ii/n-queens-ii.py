@@ -3,7 +3,7 @@ class Solution(object):
         n = len(cols)
 
         if row == n:
-            solutions.append(0)
+            solutions[0] += 1
             return 
         
         for col in range(n):
@@ -30,7 +30,7 @@ class Solution(object):
         cols = [0 for i in range(n)]
         positive_diagonal, negative_diagonal = [0 for i in range(2 * n - 1)], [0 for i in range(2 * n - 1)]
         board = ["." * n for _ in range(n)]
-        solutions = []
+        solutions = [0]
         
         self.returnSolutions(0, cols, positive_diagonal, negative_diagonal, board, solutions)
-        return len(solutions)
+        return solutions[0]
