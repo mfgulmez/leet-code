@@ -8,7 +8,6 @@ class Solution(object):
         length = len(nums)
         initial_operator = 0
         while count < length:
-            print(index, nums[index])
             if nums[index] == 0:
                 nums.pop(index)
                 nums.insert(len(nums), 0)
