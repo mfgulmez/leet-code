@@ -10,7 +10,6 @@ class Solution(object):
             return max(intersect_profit, lower_profit, upper_profit, self.getMaxProfit(mid, high, prices), self.getMaxProfit(low, mid, prices))
         else:
             if low < high:
-                print(prices[high] - prices[low])
                 return prices[high] - prices[low]
     def maxProfit(self, prices):
         """
