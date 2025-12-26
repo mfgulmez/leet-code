@@ -1,20 +1,47 @@
 class Solution(object):
-    def quickSort(self, nums, low, high):
+    def mergeSort(self, nums, low, high):
         if low < high:
-            i, j = low - 1, low
-            pivot = nums[high]
-            while j < high:
-                if nums[j] < pivot:
-                    i += 1
-                    nums[i], nums[j] = nums[j], nums[i]
-                j += 1
-            nums[i + 1], nums[high] = nums[high], nums[i + 1]
-            self.quickSort(nums, low, i)
-            self.quickSort(nums, i + 2, high)
+            mid = (low + high) // 2
+            self.mergeSort(nums, low, mid)
+            self.mergeSort(nums, mid + 1, high)
+
+            low_size = mid - low + 1
+            high_size = high - mid
+            low_array = [0] * low_size
+            high_array = [0] * high_size
+            
+            for i in range(low_size):
+                low_array[i] = nums[low + i]
+
+            for i in range(high_size):
+                high_array[i] = nums[mid + i + 1]
+
+            low_index, high_index, nums_index = 0, 0, low
+            while low_index < low_size and high_index < high_size:
+                if low_array[low_index] <= high_array[high_index]:
+                    nums[nums_index] = low_array[low_index]
+                    low_index += 1
+                else:
+                    nums[nums_index] = high_array[high_index]
+                    high_index += 1
+                nums_index += 1
+            
+            while low_index < low_size:
+                nums[nums_index] = low_array[low_index]
+                low_index += 1
+                nums_index += 1
+
+            while high_index < high_size:
+                nums[nums_index] = high_array[high_index]
+                high_index += 1
+                nums_index += 1
+
+
+
 
     def sortColors(self, nums):
         """
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        self.quickSort(nums, 0, len(nums) - 1)
+        self.mergeSort(nums, 0, len(nums) - 1)
