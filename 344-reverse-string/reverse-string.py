@@ -6,7 +6,5 @@ class Solution(object):
         """
         index = 0
         while index < (len(s) // 2):
-            temp = s[index]
-            s[index] = s[len(s) - index - 1]
-            s[len(s) - index - 1] = temp
+            s[index] , s[len(s) - index - 1] = s[len(s) - index - 1], s[index]
             index += 1
