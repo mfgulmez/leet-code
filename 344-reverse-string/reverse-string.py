@@ -5,5 +5,6 @@ class Solution(object):
         :rtype: None Do not return anything, modify s in-place instead.
         """
         index = 0
-        for index in range(len(s) // 2):
+        length = len(s) // 2
+        for index in range(length):
             s[index] , s[len(s) - index - 1] = s[len(s) - index - 1], s[index]
