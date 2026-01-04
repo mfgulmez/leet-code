@@ -6,8 +6,8 @@ class Solution(object):
         :rtype: List[int]
         """
         result = []
-        for i in nums1:
-            if i in nums2 and i not in result:
+        uniques1, uniques2 = list(set(nums1)), list(set(nums2))
+        for i in uniques1:
+            if i in uniques2:
                 result.append(i)
-
         return result
