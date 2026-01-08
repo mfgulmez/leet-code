@@ -12,7 +12,7 @@ class Solution(object):
         direction = "R"
         while count <= length:
             result[m_index][n_index] = count
-            print(corner)
+
             if direction == "R":
                 if n_index == corner:
                     m_index = m_index + 1
@@ -41,6 +41,5 @@ class Solution(object):
                     direction = "R"
                 else:
                     m_index -= 1
-            print(result, direction)
             count += 1
         return result
